@@ -18,13 +18,13 @@ body {
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* Increased margin for better spacing */
 }
 
 input[type='text'] {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px; /* Equal padding on all sides */
+  margin-bottom: 15px; /* Increased margin for better spacing */
   box-sizing: border-box;
 }
 
@@ -32,6 +32,8 @@ input[type='text'] {
 button.btn-primary.custom-btn {
   background-color: #28a745; /* Green color */
   color: #fff;
+  padding: 10px; /* Equal padding on all sides */
+  border-radius: 4px;
 }
 
 button.btn-primary.custom-btn:hover {
@@ -41,7 +43,17 @@ button.btn-primary.custom-btn:hover {
 /* Responsive styles */
 @media screen and (max-width: 600px) {
   .container {
-    margin: 10px;
+      margin: 10px;
+      padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  input[type='text'] {
+      padding: 8px; /* Adjusted padding for smaller screens */
+      margin-bottom: 10px; /* Adjusted margin for smaller screens */
+  }
+
+  button.btn-primary.custom-btn {
+      padding: 8px; /* Adjusted padding for smaller screens */
   }
 }
 
