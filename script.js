@@ -9,34 +9,31 @@ document.addEventListener('DOMContentLoaded', function () {
   initialPasswordValue = document.getElementById('password').value;
 });
 
-function encrypt() {
+function process() {
   var text = document.getElementById('text').value;
   var password = document.getElementById('password').value;
+  var operation = document.querySelector('input[name="operation"]:checked');
 
-  if (text === '' || password === '') {
-    alert('Both data and password are required for encryption.');
+  if (text === '' || password === || operation === null) {
+    alert('Data, password, and operation selection are required.');
     return;
   }
 
-  var encrypted = CryptoJS.AES.encrypt(text, password);
-  document.getElementById('EncryptedValue').innerHTML = encrypted;
-  document.getElementById('decrypted').innerHTML = '';
-}
+  if (operation.value === 'encrypt') {
+    var encrypted = CryptoJS.AES.encrypt(text, password);
+    document.getElementById('result').innerHTML = encrypted;
+  } else if (operation.value === 'decrypt') {
+    var encryptedValue = document.getElementById('EncryptedValue').innerHTML;
+    if (encryptedValue === '') {
+      alert('Encrypted data is required for decryption.');
+      return;
+    }
 
-function decrypt() {
-  var encryptedValue = document.getElementById('EncryptedValue').innerHTML;
-  var password = document.getElementById('password').value;
-
-  if (encryptedValue === '' || password === '') {
-    alert('Both encrypted data and password are required for decryption.');
-    return;
+    var decrypted = CryptoJS.AES.decrypt(encryptedValue, password).toString(
+      CryptoJS.enc.Utf8
+    );
+    document.getElementById('result').innerHTML = decrypted;
   }
-
-  var decrypted = CryptoJS.AES.decrypt(encryptedValue, password).toString(
-    CryptoJS.enc.Utf8
-  );
-  document.getElementById('decrypted').innerHTML = decrypted;
-  document.getElementById('EncryptedValue').innerHTML = '';
 }
 
 function clearInput() {
@@ -53,6 +50,5 @@ function clearInput() {
 
   document.getElementById('text').value = '';
   document.getElementById('password').value = '';
-  document.getElementById('EncryptedValue').innerHTML = '';
-  document.getElementById('decrypted').innerHTML = '';
+  document.getElementById('result').innerHTML = '';
 }
