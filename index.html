@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="container mt-5">
-      <h5 class="text-center title-header">AES Cryptograpy</h5>
+      <h5 class="text-center title-header">AES Cryptography</h5>
       <div class="form-group">
         <label for="text" class="text-label">Data to encrypt:</label>
         <input
@@ -41,25 +41,37 @@
         />
       </div>
 
-      <button class="btn btn-primary custom-btn" onclick="encrypt()">
-        Encrypt
-      </button>
+      <div class="text-center">
+        <button
+          class="btn btn-primary custom-btn"
+          onclick="encrypt()"
+        >
+          Encrypt
+        </button>
+      </div>
       <br />
       <p class="mt-2 custom-text">Encrypted Value:</p>
       <div id="EncryptedValue" class="custom-result"></div>
       <br />
 
-      <button class="btn btn-primary custom-btn" onclick="decrypt()">
-        Decrypt
-      </button>
+      <div class="text-center">
+        <button
+          class="btn btn-primary custom-btn"
+          onclick="decrypt()"
+        >
+          Decrypt
+        </button>
+      </div>
       <br />
       <p class="mt-2 custom-text">Decrypted Value:</p>
       <div id="decrypted" class="custom-result"></div>
       <br />
 
-      <button class="btn btn-secondary custom-btn" onclick="clearInput()">
-        Clear Input
-      </button>
+      <div class="text-center">
+        <button class="btn btn-secondary custom-btn" onclick="clearInput()">
+          Clear Input
+        </button>
+      </div>
     </div>
     <footer class="text-center mt-5 text-copy">
       <p>&copy; 2024 Intan Ambarwati 312110075 TI21C6.</p>
