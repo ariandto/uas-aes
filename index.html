@@ -21,12 +21,12 @@
     <div class="container mt-5">
       <h5 class="text-center title-header">AES Cryptography</h5>
       <div class="form-group">
-        <label for="text" class="text-label">Data to process:</label>
+        <label for="text" class="text-label">Data to encrypt:</label>
         <input
           id="text"
           class="form-control custom-input"
           type="text"
-          placeholder="Enter text to process"
+          placeholder="Enter text to encrypt"
         />
       </div>
 
@@ -42,41 +42,29 @@
       </div>
 
       <div class="text-center">
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="operation"
-            id="encryptRadio"
-            value="encrypt"
-          />
-          <label class="form-check-label" for="encryptRadio">
-            Encrypt
-          </label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="operation"
-            id="decryptRadio"
-            value="decrypt"
-          />
-          <label class="form-check-label" for="decryptRadio">
-            Decrypt
-          </label>
-        </div>
-      </div>
-      <br />
-      <div class="text-center">
-        <button class="btn btn-primary custom-btn" onclick="process()">
-          Process
+        <button
+          class="btn btn-primary custom-btn"
+          onclick="encrypt()"
+        >
+          Encrypt
         </button>
       </div>
       <br />
-      <p class="mt-2 custom-text">Result:</p>
-      <div id="result" class="custom-result"></div>
+      <p class="mt-2 custom-text">Encrypted Value:</p>
+      <div id="EncryptedValue" class="custom-result"></div>
+      <br />
+
+      <div class="text-center">
+        <button
+          class="btn btn-primary custom-btn"
+          onclick="decrypt()"
+        >
+          Decrypt
+        </button>
+      </div>
+      <br />
+      <p class="mt-2 custom-text">Decrypted Value:</p>
+      <div id="decrypted" class="custom-result"></div>
       <br />
 
       <div class="text-center">
