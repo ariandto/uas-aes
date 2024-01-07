@@ -32,7 +32,7 @@ input[type='text'] {
 button.btn-primary.custom-btn {
   background-color: #28a745; /* Green color */
   color: #fff;
-  padding: 10px; /* Equal padding on all sides */
+  padding: 8px 12px; /* Adjusted padding for buttons */
   border-radius: 4px;
 }
 
@@ -53,7 +53,7 @@ button.btn-primary.custom-btn:hover {
   }
 
   button.btn-primary.custom-btn {
-      padding: 8px; /* Adjusted padding for smaller screens */
+      padding: 8px 12px; /* Adjusted padding for smaller screens */
   }
 }
 
