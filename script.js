@@ -21,19 +21,21 @@ function process() {
   }
 
   if (operationEncrypt) {
-    var encrypted = CryptoJS.AES.encrypt(text, password);
+    var encrypted = CryptoJS.AES.encrypt(text, password).toString();
     document.getElementById('result').innerHTML = encrypted;
   } else if (operationDecrypt) {
-    var encryptedValue = document.getElementById('EncryptedValue').innerHTML;
+    var encryptedValue = document.getElementById('result').innerHTML;
     if (encryptedValue === '') {
       alert('Encrypted data is required for decryption.');
       return;
     }
 
-    var decrypted = CryptoJS.AES.decrypt(encryptedValue, password).toString(
-      CryptoJS.enc.Utf8
-    );
-    document.getElementById('result').innerHTML = decrypted;
+    try {
+      var decrypted = CryptoJS.AES.decrypt(encryptedValue, password).toString(CryptoJS.enc.Utf8);
+      document.getElementById('result').innerHTML = decrypted;
+    } catch (error) {
+      alert('Decryption failed. Make sure the password is correct.');
+    }
   }
 }
 
