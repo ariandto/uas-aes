@@ -31,10 +31,16 @@ function process() {
     }
 
     try {
-      var decrypted = CryptoJS.AES.decrypt(encryptedValue, password).toString(CryptoJS.enc.Utf8);
-      document.getElementById('result').innerHTML = decrypted;
+      var decrypted = CryptoJS.AES.decrypt(encryptedValue, password);
+      var decryptedText = decrypted.toString(CryptoJS.enc.Utf8);
+
+      if (!decryptedText) {
+        throw new Error('Invalid password or encrypted data.');
+      }
+
+      document.getElementById('result').innerHTML = decryptedText;
     } catch (error) {
-      alert('Decryption failed. Make sure the password is correct.');
+      alert('Decryption failed. ' + error.message);
     }
   }
 }
